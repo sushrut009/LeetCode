@@ -44,7 +44,7 @@ public class ConvertInfixToPostfix { // It is easier for an algorithm to process
   }
   
   public boolean isVariable(char c) {
-    if(Character.isLetter(c)) {
+    if(Character.isLetterOrDigit(c)) {
       return true ;
     } else {
       return false ;
