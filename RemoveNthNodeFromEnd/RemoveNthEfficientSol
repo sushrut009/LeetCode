@@ -1,1 +1,34 @@
-
+public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode TmpRef = head ; 
+        ListNode NthRef = null ;
+    
+        // Create a diff of N between the two pointers. Then , increment both till tmpRef becomes null and return the other 
+        
+        for(int count = 1 ; count < n ; count++ ) {
+            if(TmpRef != null) {
+              TmpRef = TmpRef.next ;  
+            } else {
+                return null ;
+            }
+        }
+        
+        ListNode prev = null ;
+        while(TmpRef != null) {
+            if(NthRef == null) { // Initialize the NthRef
+                NthRef = head ;
+                prev = null  ;
+            } else {
+                prev = NthRef ;
+                NthRef = NthRef.next ;
+            }
+            TmpRef = TmpRef.next ;
+        }
+        
+        if(prev == null) {
+          head = head.next;
+        } else {
+          prev.next = NthRef.next;
+        }
+        return head ;
+        
+    }
